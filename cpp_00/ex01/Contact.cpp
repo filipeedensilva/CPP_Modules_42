@@ -6,14 +6,13 @@
 /*   By: feden-pe <feden-pe@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 20:32:29 by feden-pe          #+#    #+#             */
-/*   Updated: 2024/03/25 21:26:12 by feden-pe         ###   ########.fr       */
+/*   Updated: 2024/05/22 15:52:43 by feden-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
 
 Contact::Contact(){
-	this->is_active = false;
 }
 
 Contact::~Contact(){
@@ -59,7 +58,22 @@ void	Contact::addNumber() {
 	this->number = input;
 }
 
-bool	Contact::isActive() {
-	return (is_active);
+std::string	Contact::getFirstName() {
+	return (this->first_name);
 }
 
+std::string	Contact::getSurname() {
+	return (this->surname);
+}
+
+std::string	Contact::getNickname() {
+	return (this->nickname);
+}
+
+std::string	Contact::getCity() {
+	return (this->city);
+}
+
+std::string Contact::getNumber() {
+	return (this->number);
+}

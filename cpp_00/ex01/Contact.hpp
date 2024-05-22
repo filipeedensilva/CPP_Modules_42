@@ -13,7 +13,6 @@ class Contact
 		std::string	nickname;
 		std::string	city;
 		std::string	number;
-		bool		is_active;
 	public:
 		Contact();
 		~Contact();
@@ -22,7 +21,11 @@ class Contact
 		void	addNickname();
 		void	addCity();
 		void	addNumber();
-		bool	isActive();
+		std::string	getFirstName();
+		std::string	getSurname();
+		std::string	getNickname();
+		std::string	getCity();
+		std::string	getNumber();
 };
 
 #endif

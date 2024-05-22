@@ -6,11 +6,13 @@
 class PhoneBook {
 	private:
 		Contact contact[8];
+		int		numContacts;
 	public:
 		PhoneBook();
 		~PhoneBook();
-		void	addContact();
+		void	addContact(int index);
 		void	searchContact();
+		std::string	trimString(std::string str);
 };
 
 #endif

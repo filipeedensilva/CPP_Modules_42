@@ -12,6 +12,7 @@ class PhoneBook {
 		~PhoneBook();
 		void	addContact(int index);
 		void	searchContact();
+		void	displayContact();
 		std::string	trimString(std::string str);
 };
 

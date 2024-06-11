@@ -6,7 +6,7 @@
 /*   By: feden-pe <feden-pe@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 20:15:19 by feden-pe          #+#    #+#             */
-/*   Updated: 2024/05/30 19:41:11 by feden-pe         ###   ########.fr       */
+/*   Updated: 2024/06/11 19:25:48 by feden-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,14 @@ int	main(void) {
 	while (true) {
 		std::cout << "Command: ";
 		std::getline(std::cin, input);
+		if (input == "EXIT" || std::cin.eof())
+			break ;
 		if (input == "ADD")
 			phonebook.addContact(index++);
 		else if (input == "SEARCH")
-			phonebook.searchContact();
-		if (input == "EXIT" || std::cin.eof())
-			break ;
+			phonebook.displayContact();
+		else
+			std::cout << "Incorrect input, try again!" << std::endl;
 		if (index == 8)
 			index = 0;
 	}

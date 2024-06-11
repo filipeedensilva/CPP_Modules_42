@@ -6,7 +6,7 @@
 /*   By: feden-pe <feden-pe@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 18:57:57 by feden-pe          #+#    #+#             */
-/*   Updated: 2024/05/30 19:37:33 by feden-pe         ###   ########.fr       */
+/*   Updated: 2024/06/11 19:27:58 by feden-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ std::string	PhoneBook::trimString(std::string str) {
 	return (tmp);
 }
 
-void	PhoneBook::searchContact() {
+void	PhoneBook::displayContact() {
 	int	i = -1;
 
 	std::cout << std::setw(10) << "" << "|" << std::setw(10) << "Name" << "|"
@@ -59,10 +59,10 @@ void	PhoneBook::searchContact() {
                   << std::setw(10) << this->trimString(contact[i].getCity()) << "|" 
                   << std::setw(10) << this->trimString(contact[i].getNumber()) << "|" << std::endl;
     }
-	this->displayContact();
+	this->searchContact();
 }
 
-void	PhoneBook::displayContact(){
+void	PhoneBook::searchContact(){
 	std::string	buffer;
 	int	index;
 
@@ -79,7 +79,20 @@ void	PhoneBook::displayContact(){
 	if (index < 1 || index > 8)
 	{
 		std::cout << "Error: value must be in between 1 and 8" << std::endl;
-		this->displayContact();
+		this->searchContact();
 		return ;
+	}
+	else {
+		index--;
+		std::cout << std::setw(10) << "" << "|" << std::setw(10) << "Name" << "|"
+			<< std::setw(10) << "Surname" << "|"
+			<< std::setw(10) << "Nickname" << "|"
+			<< std::setw(10) << "City" << "|"
+			<< std::setw(10) << "Number" << "|" << std::endl;
+		std::cout << std::setw(10) << index + 1 << "|" << std::setw(10) << this->trimString(contact[index].getFirstName()) << "|" 
+			<< std::setw(10) << this->trimString(contact[index].getSurname()) << "|" 
+			<< std::setw(10) << this->trimString(contact[index].getNickname()) << "|" 
+			<< std::setw(10) << this->trimString(contact[index].getCity()) << "|" 
+			<< std::setw(10) << this->trimString(contact[index].getNumber()) << "|" << std::endl;
 	}
 }

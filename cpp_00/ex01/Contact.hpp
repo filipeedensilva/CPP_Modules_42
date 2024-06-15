@@ -3,6 +3,7 @@
 
 # include <iostream>
 # include <string>
+# include <algorithm>
 # include <iomanip>
 # include <cstdlib>
 
@@ -12,21 +13,24 @@ class Contact
 		std::string	first_name;
 		std::string	surname;
 		std::string	nickname;
-		std::string	city;
+		std::string	secret;
 		std::string	number;
 	public:
+		int			flag;
 		Contact();
 		~Contact();
 		void	addFirstName();
 		void	addSurname();
 		void	addNickname();
-		void	addCity();
+		void	addSecret();
 		void	addNumber();
 		std::string	getFirstName();
 		std::string	getSurname();
 		std::string	getNickname();
-		std::string	getCity();
+		std::string	getSecret();
 		std::string	getNumber();
 };
+
+std::string	removeTab(std::string str);
 
 #endif

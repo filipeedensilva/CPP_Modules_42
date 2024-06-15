@@ -6,7 +6,7 @@
 /*   By: feden-pe <feden-pe@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 18:57:57 by feden-pe          #+#    #+#             */
-/*   Updated: 2024/06/11 19:27:58 by feden-pe         ###   ########.fr       */
+/*   Updated: 2024/06/15 18:53:31 by feden-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,19 +23,30 @@ PhoneBook::~PhoneBook() {
 }
 
 void	PhoneBook::addContact(int i) {
-	
+
 	this->contact[i].addFirstName();
 	this->contact[i].addSurname();
 	this->contact[i].addNickname();
-	this->contact[i].addCity();
+	this->contact[i].addSecret();
 	this->contact[i].addNumber();
-	std::cout << "Contact added!" << std::endl;
+	if (this->contact[i].flag == 0)
+		std::cout << "Contact added!" << std::endl;
+}
+
+std::string	removeTab(std::string str)
+{
+	std::string tmp;
+
+	tmp = str;
+	std::string::iterator end_pos = std::remove(tmp.begin(), tmp.end(), '\t');
+	tmp.erase(end_pos, tmp.end());
+	return (tmp);
 }
 
 std::string	PhoneBook::trimString(std::string str) {
 	std::string	tmp;
 
-	tmp = str;
+	tmp = removeTab(str);
 	if (tmp.size() > 9)
 	{
 		tmp.resize(10);
@@ -44,20 +55,17 @@ std::string	PhoneBook::trimString(std::string str) {
 	return (tmp);
 }
 
+
 void	PhoneBook::displayContact() {
 	int	i = -1;
 
 	std::cout << std::setw(10) << "" << "|" << std::setw(10) << "Name" << "|"
               << std::setw(10) << "Surname" << "|"
-              << std::setw(10) << "Nickname" << "|"
-              << std::setw(10) << "City" << "|"
-              << std::setw(10) << "Number" << "|" << std::endl;
+              << std::setw(10) << "Nickname" << "|" << std::endl;
 	while (++i < 8) {
         std::cout << std::setw(10) << i + 1 << "|" << std::setw(10) << this->trimString(contact[i].getFirstName()) << "|" 
                   << std::setw(10) << this->trimString(contact[i].getSurname()) << "|" 
-                  << std::setw(10) << this->trimString(contact[i].getNickname()) << "|" 
-                  << std::setw(10) << this->trimString(contact[i].getCity()) << "|" 
-                  << std::setw(10) << this->trimString(contact[i].getNumber()) << "|" << std::endl;
+                  << std::setw(10) << this->trimString(contact[i].getNickname()) << "|" << std::endl;
     }
 	this->searchContact();
 }
@@ -72,10 +80,7 @@ void	PhoneBook::searchContact(){
 	std::stringstream convert(buffer);
 	convert >> index;
 	if (std::cin.eof())
-	{
-		buffer[0] = 0;
 		return ;
-	}
 	if (index < 1 || index > 8)
 	{
 		std::cout << "Error: value must be in between 1 and 8" << std::endl;
@@ -84,15 +89,20 @@ void	PhoneBook::searchContact(){
 	}
 	else {
 		index--;
-		std::cout << std::setw(10) << "" << "|" << std::setw(10) << "Name" << "|"
-			<< std::setw(10) << "Surname" << "|"
-			<< std::setw(10) << "Nickname" << "|"
-			<< std::setw(10) << "City" << "|"
-			<< std::setw(10) << "Number" << "|" << std::endl;
-		std::cout << std::setw(10) << index + 1 << "|" << std::setw(10) << this->trimString(contact[index].getFirstName()) << "|" 
-			<< std::setw(10) << this->trimString(contact[index].getSurname()) << "|" 
-			<< std::setw(10) << this->trimString(contact[index].getNickname()) << "|" 
-			<< std::setw(10) << this->trimString(contact[index].getCity()) << "|" 
-			<< std::setw(10) << this->trimString(contact[index].getNumber()) << "|" << std::endl;
+		std::cout << std::endl << "First name: " << removeTab(contact[index].getFirstName()) << std::endl;
+		std::cout << "Surname: " << removeTab(contact[index].getSurname()) << std::endl;
+		std::cout << "Nickname: " << removeTab(contact[index].getNickname()) << std::endl;
+		std::cout << "Darkest secret: " << removeTab(contact[index].getSecret()) << std::endl;
+		std::cout << "Telephone number: " << removeTab(contact[index].getNumber()) << std::endl << std::endl;
+		// std::cout << std::setw(10) << "" << "|" << std::setw(10) << "Name" << "|"
+		// 	<< std::setw(10) << "Surname" << "|"
+		// 	<< std::setw(10) << "Nickname" << "|"
+		// 	<< std::setw(10) << "Darkest Secret" << "|"
+		// 	<< std::setw(10) << "Number" << "|" << std::endl;
+		// std::cout << std::setw(10) << index + 1 << "|" << std::setw(10) << this->trimString(contact[index].getFirstName()) << "|" 
+		// 	<< std::setw(10) << this->contact[index].getSurname() << "|" 
+		// 	<< std::setw(10) << this->contact[index].getNickname() << "|" 
+		// 	<< std::setw(10) << this->contact[index].getNumber() << "|" 
+		// 	<< std::setw(10) << this->contact[index].getSecret() << "|" << std::endl;
 	}
 }

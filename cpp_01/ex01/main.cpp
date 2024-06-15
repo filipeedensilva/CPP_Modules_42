@@ -5,34 +5,21 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: feden-pe <feden-pe@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/25 20:15:19 by feden-pe          #+#    #+#             */
-/*   Updated: 2024/06/15 18:17:44 by feden-pe         ###   ########.fr       */
+/*   Created: 2024/06/11 19:20:10 by feden-pe          #+#    #+#             */
+/*   Updated: 2024/06/11 20:23:52 by feden-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PhoneBook.hpp"
+#include "Zombie.hpp"
 
-int	main(void) {
-	int			index;
-	PhoneBook phonebook;
-	std::string input;
-
-	index = 0;
-	std::cout << "Choose a command: ADD | SEARCH | EXIT" << std::endl;
-	while (true) {
-		if (std::cin.eof())
-			break ;
-		std::cout << "Command: ";
-		std::getline(std::cin, input);
-		if (input == "EXIT" || std::cin.eof())
-			break ;
-		if (input == "ADD")
-			phonebook.addContact(index++);
-		else if (input == "SEARCH")
-			phonebook.displayContact();
-		else
-			std::cout << "Incorrect input, try again!" << std::endl;
-		if (index == 8)
-			index = 0;
-	}
+int	main(void)
+{
+	Zombie *tmp = new Zombie;
+	tmp->setName("Rui");
+	tmp->announce();
+	delete tmp;
+	
+	Zombie *create = zombieHorde(5, "Zombiesss");
+	for (int i = 0; i < 5; i++)
+		create[i].announce();
 }

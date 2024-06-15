@@ -16,7 +16,6 @@ class Contact
 		std::string	secret;
 		std::string	number;
 	public:
-		int			flag;
 		Contact();
 		~Contact();
 		void	addFirstName();

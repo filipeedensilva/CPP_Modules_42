@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   HumanA.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: feden-pe <feden-pe@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/11 19:20:10 by feden-pe          #+#    #+#             */
-/*   Updated: 2024/06/22 13:16:18 by feden-pe         ###   ########.fr       */
+/*   Created: 2024/06/22 14:01:30 by feden-pe          #+#    #+#             */
+/*   Updated: 2024/06/24 15:34:04 by feden-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef HUMANA_HPP
+# define HUMANA_HPP
 
-int	main(void)
-{
-	Zombie *tmp = new Zombie;
-	tmp->setName("Bruno");
-	tmp->announce();
-	delete tmp;
-	
-	Zombie *create = zombieHorde(5, "Nizaras");
-	for (int i = 0; i < 5; i++)
-		create[i].announce();
-	delete [] create;
-}
+# include "Weapon.hpp"
+
+class	HumanA {
+	private:
+		std::string	_name;
+		Weapon	&_weapon;
+	public:
+		HumanA(std:: string name, Weapon &weapon);
+		~HumanA();
+		void	attack(void);
+};
+
+#endif

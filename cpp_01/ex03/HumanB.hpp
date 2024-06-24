@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   HumanB.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: feden-pe <feden-pe@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/11 19:20:10 by feden-pe          #+#    #+#             */
-/*   Updated: 2024/06/22 13:16:18 by feden-pe         ###   ########.fr       */
+/*   Created: 2024/06/22 14:01:30 by feden-pe          #+#    #+#             */
+/*   Updated: 2024/06/24 16:16:03 by feden-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef HUMANB_HPP
+# define HUMANB_HPP
 
-int	main(void)
-{
-	Zombie *tmp = new Zombie;
-	tmp->setName("Bruno");
-	tmp->announce();
-	delete tmp;
-	
-	Zombie *create = zombieHorde(5, "Nizaras");
-	for (int i = 0; i < 5; i++)
-		create[i].announce();
-	delete [] create;
-}
+# include "Weapon.hpp"
+
+class	HumanB {
+
+	private:
+		std::string	_name;
+		Weapon	*_weapon;
+	public:
+		HumanB(std::string name);
+		~HumanB();
+		void	attack(void);
+		void	setWeapon(Weapon &type);
+};
+
+#endif

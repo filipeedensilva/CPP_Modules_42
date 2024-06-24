@@ -1,26 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Weapon.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: feden-pe <feden-pe@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/11 19:20:10 by feden-pe          #+#    #+#             */
-/*   Updated: 2024/06/22 13:16:18 by feden-pe         ###   ########.fr       */
+/*   Created: 2024/06/22 13:53:41 by feden-pe          #+#    #+#             */
+/*   Updated: 2024/06/24 15:59:33 by feden-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef WEAPON_HPP
 
-int	main(void)
-{
-	Zombie *tmp = new Zombie;
-	tmp->setName("Bruno");
-	tmp->announce();
-	delete tmp;
-	
-	Zombie *create = zombieHorde(5, "Nizaras");
-	for (int i = 0; i < 5; i++)
-		create[i].announce();
-	delete [] create;
-}
+# define WEAPON_HPP
+
+# include <iostream>
+
+class	Weapon {
+
+	private:
+		std::string	_type;
+
+	public:
+		Weapon(std::string name);
+		~Weapon();
+
+		const std::string getType(void);
+		void		setType(std::string name);
+};
+
+#endif

@@ -6,7 +6,7 @@
 /*   By: feden-pe <feden-pe@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 19:25:49 by feden-pe          #+#    #+#             */
-/*   Updated: 2024/06/11 20:42:10 by feden-pe         ###   ########.fr       */
+/*   Updated: 2024/06/22 13:12:13 by feden-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ Zombie::Zombie(){
 }
 
 Zombie::~Zombie(){
-	std::cout << this->_name << " got destryed!" << std::endl;
+	std::cout << this->_name << " got destroyed!" << std::endl;
 }
 
 void	Zombie::announce(void)

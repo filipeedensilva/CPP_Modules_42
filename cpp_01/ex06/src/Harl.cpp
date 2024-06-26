@@ -6,7 +6,7 @@
 /*   By: feden-pe <feden-pe@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 19:15:02 by feden-pe          #+#    #+#             */
-/*   Updated: 2024/06/26 15:50:45 by feden-pe         ###   ########.fr       */
+/*   Updated: 2024/06/26 16:07:49 by feden-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,9 @@ void	Harl::complain(std::string level) {
 	std::string messages[4] = { "DEBUG", "INFO", "WARNING", "ERROR" };
 
 	while (i < 4) {
-		if (messages[i] != level)
-			i++;
-		else
+		if (messages[i] == level)
 			break ;
+		i++;
 	}
 	
 	switch (i) {

@@ -3,7 +3,6 @@
 
 # include <iostream>
 # include <string>
-# include <exception>
 
 class Harl
 {
@@ -19,7 +18,5 @@ class Harl
 
 		void	complain(std::string level);
 };
-
-typedef void (Harl::*annoy) (void) ;
 
 #endif

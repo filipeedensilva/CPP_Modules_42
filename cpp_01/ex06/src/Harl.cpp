@@ -6,7 +6,7 @@
 /*   By: feden-pe <feden-pe@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 19:15:02 by feden-pe          #+#    #+#             */
-/*   Updated: 2024/06/26 16:07:49 by feden-pe         ###   ########.fr       */
+/*   Updated: 2024/06/26 19:23:12 by feden-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,12 @@ void	Harl::warning(void) {
 }
 
 void	Harl::error(void) {
-	std::cout << "[ ERROR ]" << std::endl << "[ THIS IS UNACCEPTABLE! I WANT TO SPEAK TO THE MANAGER NOW. ]" << std::endl << std::endl;
+	std::cout << "[ ERROR ]" << std::endl << "[ THIS IS UNACCEPTABLE! I WANT TO SPEAK TO THE MANAGER NOW. ]" << std::endl;
 }
 
 void	Harl::complain(std::string level) {
 
 	int	i = 0;
-	annoy ptr[4] = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
 	std::string messages[4] = { "DEBUG", "INFO", "WARNING", "ERROR" };
 
 	while (i < 4) {
@@ -48,21 +47,17 @@ void	Harl::complain(std::string level) {
 	
 	switch (i) {
 		case 0:
-			(this->*ptr[i])();
-			i++;
+			this->debug();
 			//fallthrough
 		case 1:
-			(this->*ptr[i])();
-			i++;
+			this->info();
 			//fallthrough
 		case 2:
-			(this->*ptr[i])();
-			i++;
+			this->warning();
 			//fallthrough
 		case 3:
-			(this->*ptr[i])();
-			i++;
-			//fallthrough
+			this->error();
+			break ;
 		default:
 			std::cout << "[ PROBABLY COMPLAINING ABOUT INSIGNIFICANT PROBLEMS ]" << std::endl;
 	}

@@ -6,7 +6,7 @@
 /*   By: feden-pe <feden-pe@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 19:15:02 by feden-pe          #+#    #+#             */
-/*   Updated: 2024/06/26 16:11:17 by feden-pe         ###   ########.fr       */
+/*   Updated: 2024/06/26 19:14:19 by feden-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,24 +42,12 @@ void	Harl::complain(std::string level) {
 
 	while (i < 4) {
 		if (messages[i] == level )
+		{
+			(this->*ptr[i])();
 			break ;
+		}
 		i++;
 	}
-	
-	switch (i) {
-		case 0:
-			(this->*ptr[i])();
-			break ;
-		case 1:
-			(this->*ptr[i])();
-			break ;
-		case 2:
-			(this->*ptr[i])();
-			break ;
-		case 3:
-			(this->*ptr[i])();
-			break ;
-		default:
-			std::cout << "[ PROBABLY COMPLAINING ABOUT INSIGNIFICANT PROBLEMS ]" << std::endl;
-	}
+	if (i == 4)
+		std::cout << "[ PROBABLY COMPLAINING ABOUT INSIGNIFICANT PROBLEMS ]" << std::endl;
 }

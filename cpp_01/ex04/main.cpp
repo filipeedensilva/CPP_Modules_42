@@ -6,7 +6,7 @@
 /*   By: feden-pe <feden-pe@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 16:23:47 by feden-pe          #+#    #+#             */
-/*   Updated: 2024/06/24 17:35:20 by feden-pe         ###   ########.fr       */
+/*   Updated: 2024/06/26 19:09:07 by feden-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,14 @@ int	main(int ac, char **av) {
 	replace = av[3];
 
 	size_t	i = 0;
-	while ((i = buffer.find(find, i)) != std::string::npos)
+	while (1)
 	{
+		i = buffer.find(find, i);
+		if (i == std::string::npos)
+			break ;
 		buffer.erase(i, find.size());
 		buffer.insert(i, replace);
+		i += replace.size();
 	}
 
 	std::string file_replace;

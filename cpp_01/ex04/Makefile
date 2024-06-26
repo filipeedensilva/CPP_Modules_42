@@ -2,13 +2,13 @@ CPP = c++
 
 FLAGS = -std=c++98 -g -Wall -Wextra -Werror
 
-SRC = HumanA.cpp HumanB.cpp Weapon.cpp main.cpp
+SRC = main.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
 RM = rm -rf
 
-NAME = violence
+NAME = sed_losser
 
 all: $(NAME)
 
@@ -28,3 +28,4 @@ fclean: clean
 	@$(RM) $(NAME)
 
 re: fclean $(NAME)
+	clear

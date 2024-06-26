@@ -6,7 +6,7 @@
 /*   By: feden-pe <feden-pe@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 19:20:10 by feden-pe          #+#    #+#             */
-/*   Updated: 2024/06/22 13:16:18 by feden-pe         ###   ########.fr       */
+/*   Updated: 2024/06/26 15:57:46 by feden-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	main(void)
 	tmp->announce();
 	delete tmp;
 	
-	Zombie *create = zombieHorde(5, "Nizaras");
+	Zombie *create = zombieHorde(5, "grrrrrrrrrrr");
 	for (int i = 0; i < 5; i++)
 		create[i].announce();
 	delete [] create;

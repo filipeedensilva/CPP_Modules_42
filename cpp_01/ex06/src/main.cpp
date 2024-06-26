@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: feden-pe <feden-pe@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/11 19:25:49 by feden-pe          #+#    #+#             */
-/*   Updated: 2024/06/26 14:27:25 by feden-pe         ###   ########.fr       */
+/*   Created: 2024/06/24 19:15:09 by feden-pe          #+#    #+#             */
+/*   Updated: 2024/06/26 15:46:05 by feden-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "../includes/Harl.hpp"
 
-Zombie::Zombie(){
-}
-
-Zombie::~Zombie(){
-	std::cout << this->_name << " got destroyed!" << std::endl;
-}
-
-void	Zombie::announce(void)
+int main(int ac, char **av)
 {
-	std::cout << this->_name << ": BraiiiiiiinnnzzzZ..." << std::endl;
-}
+	Harl harl;
 
-void	Zombie::setName(std::string name)
-{
-	this->_name = name;
+	if (ac == 2) {
+		std::string input = av[1];
+		harl.complain(input);
+	}
+	else {
+		std::cout << "Error: Incorrect number of arguments!" << std::endl;
+		return (1);
+	}
+
+	return (0);
 }

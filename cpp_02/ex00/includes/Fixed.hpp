@@ -8,7 +8,7 @@
 class Fixed
 {
 	private:
-		int					_num_value;
+		int					_fixed_value;
 		static const int	_fract_bits = 8;
 	public:
 		Fixed();

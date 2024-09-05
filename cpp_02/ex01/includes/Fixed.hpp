@@ -6,8 +6,7 @@
 # include <exception>
 # include <cmath>
 
-class Fixed
-{
+class Fixed {
 	private:
 		int					_fixed_value;
 		static const int	_num_bits = 8;

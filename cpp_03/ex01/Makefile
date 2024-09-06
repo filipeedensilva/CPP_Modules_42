@@ -2,7 +2,7 @@ CC = c++
 
 FLAGS = -Wall -Werror -Wextra -std=c++98
 
-SRC = src/ClapTrap.cpp src/main.cpp
+SRC = src/ClapTrap.cpp src/ScavTrap.cpp src/main.cpp
 
 OBJ = $(SRC:$(SRC_PATH)%.cpp=$(OBJ_PATH)%.o)
 

@@ -1,11 +1,11 @@
 #include "../includes/ClapTrap.hpp"
 
-ClapTrap::ClapTrap() {
-	std::cout << "ClapTrap constructor called" << std::endl;
-	this->_name = "Noname";
-	this->_energy = 10;
-	this->_health = 10;
-	this->_attack_damage = 0;
+ClapTrap::ClapTrap() : _name("Noname"), _health(100), _energy(50), _attack_damage(20) {
+	std::cout << "Default ClapTrap constructor called" << std::endl;
+}
+
+ClapTrap::ClapTrap(const std::string name) : _name(name), _health(100), _energy(50), _attack_damage(20) {
+	std::cout << "ClapTrap paramaterized constructor called" << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap &copy) {
@@ -13,16 +13,7 @@ ClapTrap::ClapTrap(const ClapTrap &copy) {
 	*this = copy;
 }
 
-ClapTrap::ClapTrap(const std::string name) {
-	std::cout << "ClapTrap constructor called" << std::endl;
-	this->_name = name;
-	this->_energy = 10;
-	this->_health = 10;
-	this->_attack_damage = 0;
-}
-
 ClapTrap &ClapTrap::operator=(const ClapTrap &copy) {
-	(void)copy;
 	std::cout << "ClapTrap copy assignment operator called" << std::endl;
 	this->_name = copy._name;
 	this->_health = copy._health;

@@ -15,7 +15,7 @@ ScavTrap::ScavTrap(const ScavTrap &copy) {
 }
 
 ScavTrap &ScavTrap::operator=(const ScavTrap &copy) {
-	std::cout << "ScavTrap operator= called" << std::endl;
+	std::cout << "ScavTrap copy assignment operator called" << std::endl;
 	this->_name = copy._name;
 	this->_energy = copy._energy;
 	this->_attack_damage = copy._attack_damage;
@@ -27,13 +27,17 @@ ScavTrap::~ScavTrap() {
 	std::cout << "ScavTrap destructor called" << std::endl;
 }
 
-void	ScavTrap::attack(const std::string &target){
-	if (this->_energy > 0) {
+void	ScavTrap::attack(const std::string& target) {
+	if (this->_health == 0) {
+		std::cout << "ScavTrap " << this->_name << " has already been KO'd and can't attack!" << std::endl;
+	}
+	else if (this->_energy == 0) {
+		std::cout << "ScavTrap " << this->_name << " is to tired to do anything!" << std::endl;
+	}
+	else {
 		std::cout << "ScavTrap " << this->_name << " attacks " << target << ", causing " << this->_attack_damage << " points of damage!" << std::endl;
 		this->_energy--;
 	}
-	else
-		std::cout << "ScavTrap " << this->_name << " is to tired to do anything!" << std::endl;
 }
 
 void	ScavTrap::guardGate(void) {

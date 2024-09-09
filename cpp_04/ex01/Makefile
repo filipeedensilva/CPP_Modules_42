@@ -2,7 +2,7 @@ NAME = Animal
 
 CC = c++
 
-SRC = src/Animal.cpp src/Cat.cpp src/Dog.cpp src/WrongAnimal.cpp src/WrongCat.cpp src/main.cpp
+SRC = src/Animal.cpp src/Brain.cpp src/Cat.cpp src/Dog.cpp src/WrongAnimal.cpp src/WrongCat.cpp src/main.cpp
 
 FLAGS = -Wall -Wextra -Werror --std=c++98
 
@@ -13,7 +13,7 @@ SRC_PATH = ./src/
 
 RM = rm -rf
 
-all : $(NAME)
+all: $(NAME)
 
 $(NAME):	$(OBJS)
 	$(CC) $(FLAGS) $(OBJS) -o $(NAME)

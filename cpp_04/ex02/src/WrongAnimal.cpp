@@ -8,13 +8,15 @@ WrongAnimal::WrongAnimal() {
 
 WrongAnimal::WrongAnimal(const WrongAnimal &copy) {
 	std::cout << "WrongAnimal copy constructor called" << std::endl;
+	// Don't forget to copy the variables here
 	*this = copy;
 }
 
 WrongAnimal &WrongAnimal::operator=(const WrongAnimal &copy) {
+	(void)copy;
 	std::cout << "WrongAnimal operator= called" << std::endl;
-	this->type = copy.type;
-	return (*this);
+	// Don't forget to copy the variables here
+	return *this;
 }
 
 WrongAnimal::~WrongAnimal() {

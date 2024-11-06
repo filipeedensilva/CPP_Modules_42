@@ -13,7 +13,7 @@ RM = rm -rf
 
 NAME = main
 
-all : $(NAME)
+all: $(NAME)
 
 $(NAME):	$(OBJ)
 	$(CC) $(FLAGS) $(OBJ) -o $(NAME)

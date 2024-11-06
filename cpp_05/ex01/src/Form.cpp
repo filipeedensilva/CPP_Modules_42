@@ -12,8 +12,8 @@ Form::Form(const Form &copy) {
 
 Form &Form::operator=(const Form &copy) {
 	std::cout << "Form operator= called" << std::endl;
-	// Don't forget to copy the variables here
-	return *this;
+	(void)copy;
+	return (*this);
 }
 
 Form::~Form() {

@@ -2,7 +2,7 @@
 # define BUREAUCRAT_HPP
 
 # include <iostream>
-#include <ostream>
+# include <ostream>
 # include <string>
 # include <exception>
 
@@ -22,14 +22,14 @@ class Bureaucrat {
 		void			gradeIncrement(void);
 		void			gradeDecrement(void);
 
-		class GradeTooHighException : public std::exception  {
+		class GradeTooHighException : public std::exception {
 			public:
 				const char* what() const throw() {
 					return ("Grade is too high!");
 				}
 		};
 
-		class GradeTooLowException : public std::exception  {
+		class GradeTooLowException : public std::exception {
 			public:
 				const char* what() const throw() {
 					return ("Grade is too low!");

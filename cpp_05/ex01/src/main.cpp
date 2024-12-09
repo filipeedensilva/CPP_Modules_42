@@ -3,18 +3,12 @@
 #include <iostream>
 
 int main(void) {
-	try {
-		Bureaucrat winnie;
-		Bureaucrat lazy("lazyBOI", 5);
-		std::cout << winnie << std::endl;
-		std::cout << lazy << std::endl;
-		for (int i = 0; i < 5; i++) {
-			lazy.gradeIncrement();
-			std::cout << lazy << std::endl;
-		}
-	}
-	catch (std::exception &e) {
-		std::cout << e.what() << std::endl;
-	}
+	Bureaucrat Nami("Nami", 1);
+	Bureaucrat Zoro("Zoro", 120);
+	Form F07("Funds for navigations tools", 20, 3);
+
+	Zoro.signForm(F07);
+	Nami.signForm(F07);
+
 	return (0);
 }

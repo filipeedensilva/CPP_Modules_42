@@ -6,8 +6,7 @@
 # include <exception>
 # include "AAnimal.hpp"
 
-class Cat : public AAnimal
-{
+class Cat : public AAnimal {
 	private:
 		Brain* brain;
 	public:

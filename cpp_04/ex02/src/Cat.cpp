@@ -16,7 +16,7 @@ Cat::Cat(const Cat &copy) : AAnimal(copy) {
 Cat &Cat::operator=(const Cat &copy) {
 	if (this != &copy) {
 		this->type = copy.type;
-		delete this->brain;
+	delete this->brain;
 		this->brain = new Brain(*copy.brain);
 	}
 	return (*this);

@@ -1,19 +1,17 @@
 /* ************************************************************************** */
-/*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: feden-pe <feden-pe@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/28 20:51:14 by feden-pe          #+#    #+#             */
-/*   Updated: 2024/11/18 20:13:46 by feden-pe         ###   ########.fr       */
+/*   Updated: 2024/11/22 18:57:01 by feden-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/Bureaucrat.hpp"
 
 Bureaucrat::Bureaucrat() : _name("Winnie"), _grade(150) {
-	std::cout << "Bureaucrat default constuctor" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const std::string name, int grade) : _name(name) {
@@ -25,18 +23,15 @@ Bureaucrat::Bureaucrat(const std::string name, int grade) : _name(name) {
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &copy) : _name(copy._name), _grade(copy._grade) {
-	std::cout << "Bureaucrat copy constructor called" << std::endl;
 	*this = copy;
 }
 
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &copy) {
-	std::cout << "Bureaucrat operator= called" << std::endl;
 	_grade = copy._grade;
 	return (*this);
 }
 
 Bureaucrat::~Bureaucrat() {
-	std::cout << "Bureaucrat destructor called" << std::endl;
 }
 
 std::string	Bureaucrat::getName(void) const {
@@ -59,7 +54,7 @@ void		Bureaucrat::gradeIncrement(void) {
 	this->_grade--;
 }
 
-void		Bureaucrat::signForm(Form &f) {
+void		Bureaucrat::signForm(AForm &f) {
 	try {
 		f.beSigned(*this);
 		std::cout << _name << " signed form: " << f.getName() << std::endl;

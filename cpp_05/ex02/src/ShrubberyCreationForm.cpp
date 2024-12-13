@@ -10,7 +10,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &copy) 
 
 ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationForm &copy) {
 	if (this != &copy) {
-		static_cast<std::string>(this->_target) = copy._target;
+		const_cast<std::string&>(this->_target) = copy._target;
 	}
 	return (*this);
 }
@@ -21,7 +21,8 @@ std::string	ShrubberyCreationForm::getTarget(void) const {
 
 ShrubberyCreationForm::~ShrubberyCreationForm() {}
 
-void	ShrubberyCreationForm::formExec(void) const {
+void	ShrubberyCreationForm::execute(Bureaucrat const &b) const {
+	beExecuted(b);
 	std::ofstream	outfile;
 	outfile.open((getTarget() + "_shrubbery").c_str());
 	outfile << 

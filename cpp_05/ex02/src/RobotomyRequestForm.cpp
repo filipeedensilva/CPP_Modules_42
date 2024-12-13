@@ -24,7 +24,8 @@ std::string	RobotomyRequestForm::getTarget(void) const {
 	return (this->_target);
 }
 
-void	RobotomyRequestForm::formExec(void) const {
+void	RobotomyRequestForm::execute(Bureaucrat const &b) const {
+	beExecuted(b);
 	srand(time(0));
 	int	randomValue = std::rand();
 

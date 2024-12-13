@@ -47,19 +47,15 @@ void		AForm::beSigned(Bureaucrat &b) {
 	_isSigned = true;
 }
 
-void	AForm::formExec(void) const {
-	std::cout << "Form executed" << std::endl;
+void	AForm::execute(Bureaucrat const &b) const {
+	std::cout << b << "Form executed" << std::endl;
 }
 
-void	AForm::execute(Bureaucrat const &b) const {
+void	AForm::beExecuted(Bureaucrat const &b) const {
 	if (_isSigned == false)
 		throw AForm::FormNotSigned();
 	else if (b.getGrade() > _exec)
 		throw AForm::GradeTooLowException();
-	else {
-		formExec();
-		std::cout << b.getName() << " executed form: " << *this << std::endl;
-	}
 }
 
 std::ostream& operator<<(std::ostream &out, const AForm &f) {

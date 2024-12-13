@@ -51,13 +51,16 @@ void	AForm::formExec(void) const {
 	std::cout << "Form executed" << std::endl;
 }
 
-void	AForm::execute(Bureaucrat &b) const {
+void	AForm::execute(Bureaucrat const &b) const {
 	if (_isSigned == false)
 		std::cout << this->getName() << " hasn't been signed" << std::endl;
 	else if (b.getGrade() > _exec)
 		std::cout << b.getName() << " doesn't meet the requirements to execute form: " << this->getName() << std::endl;
 	else
-	 	formExec();
+	{
+		formExec();
+		std::cout << b.getName() << " executed form: " << getName() << std::endl;
+	}
 }
 
 std::ostream& operator<<(std::ostream &out, const AForm &f) {

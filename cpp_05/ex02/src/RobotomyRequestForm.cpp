@@ -25,6 +25,7 @@ std::string	RobotomyRequestForm::getTarget(void) const {
 }
 
 void	RobotomyRequestForm::formExec(void) const {
+	srand(time(0));
 	int	randomValue = std::rand();
 
 	if (randomValue % 2 == 0)

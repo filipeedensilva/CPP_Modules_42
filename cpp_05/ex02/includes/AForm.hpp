@@ -52,6 +52,12 @@ class AForm {
 					return ("Form is already signed");
 				}
 		};
+		class FormNotSigned : public std::exception {
+			public:
+				const char* what() const throw() {
+					return ("Form hasn't been signed");
+				}
+		};
 };
 
 std::ostream& operator<<(std::ostream &out, const AForm &f);

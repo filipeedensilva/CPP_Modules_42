@@ -53,17 +53,16 @@ void	AForm::formExec(void) const {
 
 void	AForm::execute(Bureaucrat const &b) const {
 	if (_isSigned == false)
-		std::cout << this->getName() << " hasn't been signed" << std::endl;
+		throw AForm::FormNotSigned();
 	else if (b.getGrade() > _exec)
-		std::cout << b.getName() << " doesn't meet the requirements to execute form: " << this->getName() << std::endl;
-	else
-	{
+		throw AForm::GradeTooLowException();
+	else {
 		formExec();
-		std::cout << b.getName() << " executed form: " << getName() << std::endl;
+		std::cout << b.getName() << " executed form: " << *this << std::endl;
 	}
 }
 
 std::ostream& operator<<(std::ostream &out, const AForm &f) {
-	out << "Form: " << f.getName() << std::endl;
+	out << f.getName() << std::endl;
 	return (out);
 }

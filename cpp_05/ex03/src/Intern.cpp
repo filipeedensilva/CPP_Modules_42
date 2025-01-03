@@ -2,40 +2,42 @@
 #include "../includes/AForm.hpp"
 
 Intern::Intern() {
+	_form_name[0] = "ShrubberyCreationForm";
+	_form_name[1] = "RobotomyRequestForm";
+	_form_name[2] = "PresidentialPardonForm";
 }
 
 Intern::Intern(const Intern &copy) {
 	std::cout << "Intern copy constructor called" << std::endl;
-	// Don't forget to copy the variables here
 	*this = copy;
 }
 
 Intern &Intern::operator=(const Intern &copy) {
+	(void)copy;
 	return (*this);
 }
 
 Intern::~Intern() { }
 
-AForm*		makePresident(std::string target) {
-	return (new PresidentialPardonForm(target));
-}
+AForm*	Intern::makeForm(std::string name, std::string target) {
 
-AForm*		makeRobotomy(std::string target) {
-	return (new RobotomyRequestForm(target));
-}
-
-AForm*		makeShrubbery(std::string target) {
-	return (new ShrubberyCreationForm(target));
-}
-
-void	Intern::makeForm(std::string name, std::string target) {
-	std::string	form[3] = { "RobotomyRequestForm", "ShrubberyCreationForm", "PresidentialPardonForm" };
+	int	index = 3;
 
 	for (int i = 0; i < 3; i++) {
-		if (name == form[i]) {
-			std::cout << "Intern created: " << form[i] << std::endl;
+		if (name == _form_name[i]) {
+			std::cout << "Intern created: " << name << std::endl;
+			index = i;
 		}
 	}
-	std::cout << "Intern couldn't create form, exception: " << std::endl;
-	throw FormDoesntExist();
+	switch (index) {
+		case (0):
+					return (new ShrubberyCreationForm(target));
+		case (1):
+					return (new RobotomyRequestForm(target));
+		case (2):
+					return (new PresidentialPardonForm(target));
+		default:
+					std::cout << "Intern couldn't create form, exception: " << std::endl;
+					throw FormDoesntExist();
+	}
 }

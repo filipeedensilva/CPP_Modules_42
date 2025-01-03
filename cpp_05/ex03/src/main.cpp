@@ -7,17 +7,23 @@
 
 int main(void) {
 
-	PresidentialPardonForm ew("barrega");
-	Bureaucrat micka("Micka", 1);
-	ShrubberyCreationForm lol("helle");
-	RobotomyRequestForm high("robot");
-
-	lol.beSigned(micka);
-	lol.execute(micka);
-	ew.beSigned(micka);
-	ew.execute(micka);
-	high.beSigned(micka);
-	high.execute(micka);
+	AForm* doc1;
+	try
+	{
+		Intern johnny;
+		doc1 = johnny.makeForm("RobotomyRequestForm", "Malandro");
+		Bureaucrat tim("Tim", 1);
+		std::cout << tim << std::endl;
+		tim.signForm(*doc1);
+		tim.executeForm(*doc1);
+		
+	}
+	catch (std::exception & e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+	if (doc1)
+		delete doc1;
 
 	return (0);
 }

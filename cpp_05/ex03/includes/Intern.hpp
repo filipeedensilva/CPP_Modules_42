@@ -12,6 +12,7 @@
 class Intern
 {
 	private:
+		std::string		_form_name[3];
 
 	public:
 		Intern();
@@ -19,7 +20,7 @@ class Intern
 		Intern &operator=(const Intern &copy);
 		~Intern();
 
-		void	makeForm(std::string name, std::string target);
+		AForm*	makeForm(std::string name, std::string target);
 
 		class FormDoesntExist : public std::exception {
 			public:

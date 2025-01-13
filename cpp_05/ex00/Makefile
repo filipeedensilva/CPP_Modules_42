@@ -18,8 +18,6 @@ all: $(NAME)
 $(NAME):	$(OBJ)
 	$(CC) $(FLAGS) $(OBJ) -o $(NAME)
 
-$(OBJ): $(OBJ_PATH)
-
 $(OBJ_PATH)%.o: $(SRC_PATH)%.cpp | $(OBJ_PATH)
 	@$(CC) $(FLAGS) -c $< -o $@
 

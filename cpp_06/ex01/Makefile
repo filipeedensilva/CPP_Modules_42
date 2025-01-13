@@ -2,7 +2,7 @@ CC = c++
 
 FLAGS = -Wall -Werror -Wextra -std=c++98
 
-SRC = src/Bureaucrat.cpp src/Form.cpp src/main.cpp
+SRC = src/Serializer.cpp src/main.cpp
 
 OBJ = $(SRC:$(SRC_PATH)%.cpp=$(OBJ_PATH)%.o)
 
@@ -13,25 +13,25 @@ RM = rm -rf
 
 NAME = main
 
-all : $(NAME)
+all: $(NAME)
 
 $(NAME):	$(OBJ)
-	$(CC) $(FLAGS) $(OBJ) -o $(NAME)
+				$(CC) $(FLAGS) $(OBJ) -o $(NAME)
 
 $(OBJ_PATH)%.o: $(SRC_PATH)%.cpp | $(OBJ_PATH)
-	@$(CC) $(FLAGS) -c $< -o $@
+				@$(CC) $(FLAGS) -c $< -o $@
 
 $(OBJ_PATH):
-	@mkdir -p $(OBJ_PATH)
+				@mkdir -p $(OBJ_PATH)
 
 clean:
-	@$(RM) $(OBJ_PATH)	
+				@$(RM) $(OBJ_PATH)	
 
 fclean:	clean
-	@$(RM) $(NAME)
+				@$(RM) $(NAME)
 
 re:	fclean att all
-	clear
+				clear
 
 att:
-	@sed -i "5s,.*,SRC = $$(echo src/*.cpp)," Makefile
+				@sed -i "5s,.*,SRC = $$(echo src/*.cpp)," Makefile

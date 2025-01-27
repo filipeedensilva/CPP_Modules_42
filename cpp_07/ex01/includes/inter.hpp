@@ -14,4 +14,9 @@ void	inter(T *array, int len, void (*f)(T const &)) {
 	}
 }
 
+template <typename T>
+void	printArr(const T &print) {
+	std::cout << print << std::endl;
+}
+
 #endif

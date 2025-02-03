@@ -1,10 +1,10 @@
 #ifndef ARRAY_HPP
 # define ARRAY_HPP
 
-#include <cstddef>
 # include <iostream>
 # include <string>
 # include <exception>
+# include <cstddef>
 
 template <typename T>
 class Array
@@ -17,34 +17,39 @@ class Array
 		Array() : _size(0), _values(NULL) {}
 		Array(size_t n) : _size(n), _values(new T[n]) {}
 		Array(const Array &copy) {
-			_values = new T[copy.getSize()];
-			_size = copy.getSize;
-			for (size_t i = 0; i < copy.getSize(); i++)
+			_values = new T[copy.size()];
+			_size = copy.size;
+			for (size_t i = 0; i < copy.size(); i++)
 				_values[i] = copy._values[i];
 		}
 		Array &operator=(const Array &copy) {
 			if (this != copy) {
 				if (_values)
 					delete[] _values;
-				_size = copy.getSize();
-				_values = new T[copy.getSize()];
-				for (size_t i = 0; i < copy.getSize(); i++)
+				_size = copy.size();
+				_values = new T[copy.size()];
+				for (size_t i = 0; i < copy.size(); i++)
 					_values[i] = copy._values[i];
 			}
 			return (*this);
 		}
-		~Array() {
-			delete[] _values;
+		~Array() { delete[] _values; }
+
+		T &operator[](size_t index) {
+			if (index >= _size)
+				throw Array::OutOfBoundsException();
+			return (_values[index]);
 		}
 
-		size_t	getSize(void) const { return (this->_size); };
 
-		class	OutOfBoundsExceptions : public std::exception {
+		class	OutOfBoundsException : public std::exception {
 			public :
 				const char* what() const throw() {
 					return ("Error: index out of bounds");
 				}
 		};
+
+		size_t	size(void) const { return (_size); };
 };
 
 #endif

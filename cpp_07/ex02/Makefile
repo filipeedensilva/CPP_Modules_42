@@ -2,7 +2,7 @@ CC = c++
 
 FLAGS = -Wall -Werror -Wextra -std=c++98
 
-SRC = src/Array.cpp src/main.cpp
+SRC = src/main.cpp
 
 OBJ = $(SRC:$(SRC_PATH)%.cpp=$(OBJ_PATH)%.o)
 

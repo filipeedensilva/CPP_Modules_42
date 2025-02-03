@@ -45,7 +45,7 @@ class Array
 		class	OutOfBoundsException : public std::exception {
 			public :
 				const char* what() const throw() {
-					return ("Error: index out of bounds");
+					return ("Error! index out of bounds");
 				}
 		};
 

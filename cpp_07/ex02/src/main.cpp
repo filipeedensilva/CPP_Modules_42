@@ -8,7 +8,7 @@ int main(void) {
 		}
 	
 		for (int i = 0; i < 10; i++) {
-			std::cout << list[i] << std::endl;
+			std::cout << i << ": " << list[i] << std::endl;
 		}
 		std::cout << "Size: " << list.size() << std::endl;
 		std::cout << "Index 6: " << list[6] << std::endl;

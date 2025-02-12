@@ -17,7 +17,11 @@ AForm::AForm(const AForm &copy) : _name(copy._name), _isSigned(copy._isSigned), 
 }
 
 AForm &AForm::operator=(const AForm &copy) {
-	*this = copy;
+	if (this != &copy) {
+		const_cast<int&>(_exec) = copy._exec;
+		const_cast<int&>(_sign) = copy._sign;
+		const_cast<std::string&>(_name) = copy._name;
+	}
 	return (*this);
 }
 

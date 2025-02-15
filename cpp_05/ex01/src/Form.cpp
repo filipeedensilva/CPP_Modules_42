@@ -6,9 +6,9 @@ Form::Form() : _name("Finish the day early"), _isSigned(false), _requireSign(50)
 
 Form::Form(const std::string name, int required, int execute) :
 _name(name), _isSigned(false), _requireSign(required), _requireExecute(execute) {
-	if (_requireExecute > 150 || _sign > 150)
+	if (_requireExecute > 150 || _requireSign > 150)
 		throw Form::GradeTooLowException();
-	else if (_requireExecute < 1 || _sign < 1)
+	else if (_requireExecute < 1 || _requireSign < 1)
 		throw Form::GradeTooHighException();
 }
 
@@ -18,8 +18,11 @@ Form::Form(const Form &copy) : _name(copy._name), _isSigned(copy._isSigned), _re
 }
 
 Form &Form::operator=(const Form &copy) {
-	std::cout << "Form operator= called" << std::endl;
-	*this = copy;
+	if (this != &copy) {
+		const_cast<int&>(_requireSign) = copy._requireSign;
+		const_cast<int&>(_requireExecute) = copy._requireExecute;
+		const_cast<std::string&>(_name) = copy._name;
+	}
 	return (*this);
 }
 

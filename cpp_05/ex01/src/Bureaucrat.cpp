@@ -6,7 +6,7 @@
 /*   By: feden-pe <feden-pe@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/28 20:51:14 by feden-pe          #+#    #+#             */
-/*   Updated: 2024/11/18 20:13:46 by feden-pe         ###   ########.fr       */
+/*   Updated: 2025/02/12 12:23:53 by feden-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,10 @@ Bureaucrat::Bureaucrat(const Bureaucrat &copy) : _name(copy._name), _grade(copy.
 }
 
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &copy) {
-	std::cout << "Bureaucrat operator= called" << std::endl;
-	_grade = copy._grade;
+	if (this != &copy) {
+		_grade = copy._grade;
+		const_cast<std::string&>(_name) = copy._name;
+	}
 	return (*this);
 }
 

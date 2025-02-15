@@ -2,7 +2,7 @@
 # define BUREAUCRAT_HPP
 
 # include <iostream>
-#include <ostream>
+# include <ostream>
 # include <string>
 # include <exception>
 

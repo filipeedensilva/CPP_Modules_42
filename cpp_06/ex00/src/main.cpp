@@ -5,7 +5,6 @@ int main(int ac, char **av) {
 		std::cout << "Error: wrong usage" << std::endl << "Input: ./converter 'value'" << std::endl;
 		return (1);
 	}
-	ScalarConverter converter;
-	converter.convert(av[1]);
+	ScalarConverter::convert(av[1]); // Class doens't need to be instaciated because it uses a static method
 	return (0);
 }

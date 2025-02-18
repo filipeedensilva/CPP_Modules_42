@@ -128,22 +128,22 @@ void	ScalarConverter::convert(const char* input) {
 	int	type = parseInput(input);
 
 	switch (type) {
-		case 1 :
+		case 1 : // CHAR
 			printChar(input[0]);
 			printInt(static_cast<int>(input[0]));
 			printFloat(static_cast<float>(input[0]));
 			printDouble(static_cast<double>(input[0]));
 			break ;
-		case 2 :
+		case 2 : // INT
 			convertToInt(input);
 			break ;
-		case 3 :
+		case 3 : // FLOAT
 			convertToPrecision(input);
 			break ;
-		case 4 :
+		case 4 : // DOUBLE
 			convertToPrecision(input);
 			break ;
-		case 5 :
+		case 5 : // PSEUDO
 			printPseudo(input);
 			break ;
 		default :

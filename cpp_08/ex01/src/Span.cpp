@@ -18,3 +18,13 @@ Span&	Span::operator=(const Span &copy) {
 }
 
 Span::~Span() {}
+
+void	Span::addNumber(int n) {
+	// if (_array.size() >= _array.capacity())
+		// throw Exception
+	if (n < _min)
+		_min = n;
+	else if (n > _max)
+		_max = n;
+	_array.push_back(n);
+}

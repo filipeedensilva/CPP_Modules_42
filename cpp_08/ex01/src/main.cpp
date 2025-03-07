@@ -1,25 +1,23 @@
 #include "../includes/Span.hpp"
 
 int	main(void) {
-	Span	test(10000);
+	Span	test(50);
 	srand(time(0));
 
 	try {
 		test.addNumber(50);
-		test.addNumber(20);
-		std::cout << test[0] << std::endl;
-		std::cout << test[1] << std::endl;
-		std::cout << (20 - 50) << std::endl;
 		std::cout << test.shortestSpan() << std::endl;
 	}
 	catch (std::exception &e) {
 		std::cout << e.what() << std::endl;
 	}
 	try {
-		for (int i = 0; i < 5000; i++)
-			test.addNumber(rand());
+		for (int i = 0; i < 49; i++)
+			test.addNumber(i);
 		std::cout << test.shortestSpan() << std::endl;
 		std::cout << test.longestSpan() << std::endl;
+		std::cout << test.getMax() << std::endl;
+		std::cout << test.getMin() << std::endl;
 	}
 	catch (std::exception &e) {
 		std::cout << e.what() << std::endl;

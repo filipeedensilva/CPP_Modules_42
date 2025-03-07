@@ -26,6 +26,9 @@ class Span {
 
 		void	fillSpan(std::vector<int>::iterator begin, std::vector<int>::iterator end);
 
+		int		getMax(void) const;
+		int		getMin(void) const;
+
 		class MaxCapacityException : public std::exception {
 			public :
 				const char* what() const throw() {

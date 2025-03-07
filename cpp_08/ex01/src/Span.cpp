@@ -23,6 +23,14 @@ int		Span::operator[](unsigned int i) {
 
 Span::~Span() {}
 
+int		Span::getMin(void) const {
+	return (_min);
+}
+
+int		Span::getMax(void) const {
+	return (_max);
+}
+
 void	Span::addNumber(int n) {
 	if (_array.size() == _array.capacity())
 		throw MaxCapacityException();

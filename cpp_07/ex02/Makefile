@@ -1,8 +1,8 @@
 CC = c++
 
-FLAGS = -Wall -Werror -Wextra -std=c++98
+FLAGS = -Wall -Werror -Wextra -std=c++98 -g
 
-SRC = src/main.cpp
+SRC = src/main.cpp src/main2.cpp
 
 OBJ = $(SRC:$(SRC_PATH)%.cpp=$(OBJ_PATH)%.o)
 

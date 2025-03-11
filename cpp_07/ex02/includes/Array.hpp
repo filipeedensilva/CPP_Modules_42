@@ -18,7 +18,7 @@ class Array
 		Array(size_t n) : _size(n), _values(new T[n]) {}
 		Array(const Array &copy) {
 			_values = new T[copy.size()];
-			_size = copy.size;
+			_size = copy.size();
 			for (size_t i = 0; i < copy.size(); i++)
 				_values[i] = copy._values[i];
 		}
@@ -41,11 +41,15 @@ class Array
 			return (_values[index]);
 		}
 
+		void printArray(void) {
+			for (size_t i = 0; i < _size; i++)
+				std::cout << i << ": " << _values[i] << std::endl;
+		}
 
 		class	OutOfBoundsException : public std::exception {
 			public :
 				const char* what() const throw() {
-					return ("Error! index out of bounds");
+					return ("Error: index out of bounds!");
 				}
 		};
 

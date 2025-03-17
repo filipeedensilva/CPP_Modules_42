@@ -29,8 +29,7 @@ void	PhoneBook::addContact(int i) {
 	this->contact[i].addNickname();
 	this->contact[i].addSecret();
 	this->contact[i].addNumber();
-	if (this->contact[i].flag == 0)
-		std::cout << "Contact added!" << std::endl;
+	std::cout << "Contact added!" << std::endl;
 }
 
 std::string	removeTab(std::string str)

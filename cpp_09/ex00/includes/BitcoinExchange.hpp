@@ -6,6 +6,7 @@
 # include <map>
 # include <fstream>
 # include <sstream>
+# include <string>
 
 class BitcoinExchange {
 	private:
@@ -21,6 +22,8 @@ class BitcoinExchange {
 		BitcoinExchange&	operator=(const BitcoinExchange &copy);
 		
 		void	parseData(void);
+		void	parseInput(void);
+		void	printMap(void);
 
 		class	FileNotOpen : public std::exception {
 			public :

@@ -142,7 +142,7 @@ void	BitcoinExchange::parseInput(void) {
 		
 		double value = stringToDouble(valueStr);
 		if (value < 0 || value > 1000) {
-			std::cerr << "Error: Invalid value: " << value << std::endl;
+			std::cerr << "Error: Invalid value => " << value << std::endl;
 			continue ;
 		}
 		std::map<std::string, double>::const_iterator it = _data.lower_bound(date);

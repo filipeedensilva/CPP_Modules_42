@@ -3,7 +3,6 @@
 
 # include <iostream>
 # include <string>
-# include <exception>
 
 template <typename T>
 void	swap(T& a, T& b) {

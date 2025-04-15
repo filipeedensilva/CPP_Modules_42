@@ -2,7 +2,7 @@ CC = c++
 
 FLAGS = -Wall -Wextra -Werror -std=c++98 -g
 
-SRC = main.cpp RPM.cpp
+SRC = src/main.cpp src/RPN.cpp
 
 OBJ = $(SRC:$(SRC_PATH)%.cpp=$(OBJ_PATH)%.o)
 
@@ -18,8 +18,7 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	$(CC) $(FLAGS) $(OBJ) -o $(NAME)
 
-
-$(OBJ_PATH).o : $(SRC_PATH)%.cpp | $(OBJ_PATH)
+$(OBJ_PATH)%.o : $(SRC_PATH)%.cpp | $(OBJ_PATH)
 	$(CC) $(FLAGS) -c $< -o $@
 
 $(OBJ_PATH):

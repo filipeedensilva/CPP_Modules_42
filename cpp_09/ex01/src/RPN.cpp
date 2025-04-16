@@ -54,8 +54,7 @@ void	RPN::calculate(int ac, char **av) {
 		while (iss >> arg) {
 			if (isOperator(arg)){
 				if (_stack.size() < 2)
-					throw InsuficientArguments();
-
+					throw InvalidRPN();
 				int b = _stack.top();
 				_stack.pop();
 				int a = _stack.top();

@@ -22,9 +22,9 @@ void	PmergeMe::parseInput(char **av) {
 
 	for (int i = 1; av[i]; i++) {
 		std::string	token(av[i]);
-
 		std::istringstream	iss(token);
 		std::string			num;
+
 		while (iss >> num) {
 			if (!isValidNumber(num))
 				throw InvalidNumber();
@@ -36,7 +36,6 @@ void	PmergeMe::parseInput(char **av) {
 			findDup.insert(static_cast<int>(value));
 			values.push_back(static_cast<int>(value));
 		}
-
 		_vector.assign(values.begin(), values.end());
 		_list.assign(values.begin(), values.end());
 	}

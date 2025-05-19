@@ -19,16 +19,16 @@ $(NAME): $(OBJ)
 	$(CC) $(FLAGS) $(OBJ) -o $(NAME)
 
 $(OBJ_PATH)%.o: $(SRC_PATH)%.cpp | $(OBJ_PATH)
-	$(CC) $(FLAGS) -c $< -o $@
+	@$(CC) $(FLAGS) -c $< -o $@
 
 $(OBJ_PATH):
 	@mkdir -p $(OBJ_PATH)
 
 clean: 
-	$(RM) $(OBJ_PATH)
+	@$(RM) $(OBJ_PATH)
 
 fclean: clean
-	$(RM) $(NAME)
+	@$(RM) $(NAME)
 
-re: clean fclean
+re: fclean all
 	clear

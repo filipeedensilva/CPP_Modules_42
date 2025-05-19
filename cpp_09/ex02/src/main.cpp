@@ -5,7 +5,16 @@ int	main(int ac, char **av) {
 		std::cerr << "Error: Invalid number of arguments!" << std::endl;
 		return (1);
 	}
-	PmergeMe	test;
+
+	try {
+		PmergeMe algorythm;
+		algorythm.parseInput(av);
+		algorythm.sort();
+	}
+	catch (std::exception const &e) {
+		std::cerr << "Error: " << e.what() << std::endl;
+		return (2);
+	}
 
 	return (0);
 }

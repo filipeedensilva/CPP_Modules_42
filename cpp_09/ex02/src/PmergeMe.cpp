@@ -80,6 +80,33 @@ void	PmergeMe::displayTime(std::string const &type, double time) {
 		<< type << " : " << time << " us" << std::endl;
 }
 
+void	PmergeMe::isSorted(void) {
+
+	bool	vSorted = true;
+	bool	lSorted = true;
+	for (size_t i = 0; i < _vector.size(); ++i) {
+		if (_vector[i - 1] > _vector[i]) {
+			vSorted = false;
+			break ;
+		}
+	}
+	for (std::list<int>::iterator it = ++_list.begin(), prev = _list.begin(); it != _list.end(); it++)
+	{
+		if (*prev > *it) {
+			lSorted = false;
+			break ;
+		}
+	}
+	if (vSorted)
+		std::cout << "Vector is sorted!" << std::endl;
+	else
+		std::cout << "Vector is not sorted! " << std::endl;
+	if (lSorted)
+		std::cout << "List is sorted!" << std::endl;
+	else
+		std::cout << "List is not sorted!" << std::endl;
+}
+
 void	PmergeMe::display(int flag) {
 	if (flag)
 		std::cout << "After: ";
@@ -151,7 +178,7 @@ void	PmergeMe::insertionSortList(void) {
 	std::list<int>::iterator current = _list.begin();
 
 	for (size_t i = 0; i < _list.size(); ++i) {
-		if (current == --_list.end() || i % 2)
+		if (current == --_list.end() || i % 2 != 0)
 			tmp.insert(insertionList(tmp.begin(), tmp.end(), *current), *current);
 		else
 			tmp.push_back(*current);
@@ -213,7 +240,7 @@ void	PmergeMe::insertionSortVector(void) {
 	std::vector<int> tmp;
 
 	for (size_t i = 0; i < _vector.size(); ++i) {
-		if (i + 1 == _vector.size() || i % 2)
+		if (i + 1 == _vector.size() || i % 2 != 0)
 			tmp.insert(tmp.begin() + insertionVector(0, tmp.size(), _vector[i], tmp), _vector[i]);
 		else
 			tmp.push_back(_vector[i]);

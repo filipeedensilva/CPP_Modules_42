@@ -26,6 +26,7 @@ class PmergeMe {
 		void	parseInput(char **av);
 		bool	isValidNumber(const std::string &str);
 		bool	hasDuplicates(const std::vector<int> &values);
+		void	isSorted(void);
 
 		void	sort(void);
 		void	display(int flag);
